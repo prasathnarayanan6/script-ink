@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-
+const loginRouter = require('./Routes/route')
 app.listen('3003', (err) => {
     if(err){ 
         console.log(err)
@@ -9,3 +9,5 @@ app.listen('3003', (err) => {
         console.log(`working`)
     }
 })
+
+app.use('/api/v1', loginRouter)
