@@ -3,8 +3,12 @@
 @tailwind utilities;
 
 body {
-  font-family: "Fira Code", monospace;
+  /* font-family: "Fira Code", monospace;
   font-optical-sizing: auto;
   font-weight: 500;
+  font-style: normal; */
+
+  font-family: "Courier Prime", monospace;
+  font-weight: 400;
   font-style: normal;
 }
