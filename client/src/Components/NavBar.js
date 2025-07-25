@@ -1,13 +1,16 @@
+import { Bell, MessageCircleMore, Search } from "lucide-react";
 import React from "react";
+import scriptinklogo from '../assets/scriptInkPrimary.png'
 function NavBar(){
     return (
         <>
-        <div className="navbar dm-sans">
-            <nav className="bg-white shadow-sm border">
+        <div className="navbar dm-sans pt-5">
+            <nav className="bg-transparent">
+                <div className="max-w-4xl mx-auto border rounded-lg">
                 <div className="flex flex-wrap items-center justify-between py-2 px-1">
                 <div className="flex justify-start items-center ms-3">
                     <div className="text-black">
-                        <div>Check</div>
+                        <div><img src={scriptinklogo} className="w-[60px]"/></div>
                     </div>
                 </div>
                 <div className="flex md:order-2">
@@ -36,47 +39,25 @@ function NavBar(){
                     <span className="sr-only">Searchh</span>
                     </button>
                     <div className="relative md:block">
-                    <div className="px-2 py-2 ms-3 text-gray-600 hover:text-[#8DC63F]">
-                        <button>
-                        <MessageCircleMore size={25} />
-                        </button>
-                    </div>
-                    </div>
-                    <div className="relative md:block">
-                    <div className="px-2 py-2 ms-3 text-gray-600 hover:text-[#8DC63F]">
-                        <button>
-                        <Search size={25} />
-                        </button>
-                    </div>
-                    </div>
-                    <div className="relative md:block">
-                    <div className="px-3 py-2 ms-3 text-gray-500 hover:text-[#8DC63F]">
-                        <button className="">
-                        <Bell size={25} />
-                        </button>
-                    </div>
-                    </div>
-                    {/* <div className="relative md:block">
-                    <div className="px-2 py-2 ms-3 text-gray-600 hover:text-[#8DC63F]">
-                        <button>
-                        <UserSettings01Icon size={21} />
-                        </button>
-                    </div>
-                    </div> */}
-                    <div className=" ms-3 relative">
-                    <button onClick={() => toggleDropdown('user-options')} className="text-blue-500 hover:bg-gray-200 p-2 rounded"  onMouseDown={(e) => ripple.create(e, "dark", "circle")}>
-                        <CircleUser size={25} />
-                    </button>
-                    {openDropdownIndex === 'user-options' && (
-                        <div
-                        ref={(el) => (dropdownRefs.current['user-options'] = el)}
-                        className="absolute right-0 mt-2 w-22 bg-white border border-gray-200 rounded shadow-md z-50 transition-all ease-in-out duration-300"
-                        >
-                        <button className="block w-full text-left px-4 py-2 hover:bg-gray-50 font-normal" >Profile</button>
-                        <button className="block w-full text-left px-4 py-3 hover:bg-gray-50">Settings</button>
-                        <button className="block w-full text-left px-4 py-3 hover:bg-gray-50" onClick={handleLogout}>Logout</button>
+                        <div className="px-2 py-2 ms-6 text-gray-500 hover:bg-[#3F51B5] hover:text-white rounded transition-all ease-in-out duration-200">
+                            <button>
+                                    <div className="text-lg ">About us</div>
+                            </button>
                         </div>
-                    )}
+                    </div>
+                    <div className="relative md:block">
+                        <div className="px-3 py-2 ms-6 text-gray-500 hover:bg-[#FF4C60] hover:text-white rounded transition-all ease-in-out duration-200">
+                            <button className="">
+                                    <div className="text-lg">Login</div>
+                            </button>
+                        </div>
+                    </div>
+                    <div className="relative md:block">
+                        <div className="px-3 py-2 ms-6 text-gray-500 bg-gray-200 rounded hover:scale-95 transition-all ease-in-out duration-300">
+                            <button className="">
+                                    <div className="text-lg">Sign up</div>
+                            </button>
+                        </div>
                     </div>
                     <button
                     data-collapse-toggle="navbar-search"
@@ -132,6 +113,7 @@ function NavBar(){
                         placeholder="Search..."
                     />
                     </div>
+                </div>
                 </div>
                 </div>
             </nav>
