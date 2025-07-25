@@ -6,7 +6,7 @@ function NavBar(){
         <>
         <div className="navbar dm-sans pt-5">
             <nav className="bg-transparent">
-                <div className="max-w-4xl mx-auto border rounded-lg">
+                <div className="max-w-4xl mx-auto border rounded-lg bg-white">
                 <div className="flex flex-wrap items-center justify-between py-2 px-1">
                 <div className="flex justify-start items-center ms-3">
                     <div className="text-black">
