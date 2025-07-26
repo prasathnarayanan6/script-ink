@@ -1,7 +1,7 @@
 import React from 'react';
 import { jwtDecode } from 'jwt-decode';
 import NavBar from '../Components/NavBar';
-import hero from '../assets/hero.jpeg'
+import hero from '../assets/hero.jpeg';
 function Home() {
   return (
     <>

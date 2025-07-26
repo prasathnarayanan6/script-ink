@@ -8,7 +8,7 @@ function RoutesPath() {
     <BrowserRouter>
             <Routes>
                     <Route path="/" element={<Home />}/>
-                    <Route path="/login" element={<Login />} />
+                    <Route path="/:login" element={<Login />} />
                     <Route element={<PrivateRoute />}>
                     </Route>
             </Routes>

@@ -1,7 +1,8 @@
 import { Bell, MessageCircleMore, Search } from "lucide-react";
 import React from "react";
 import scriptinklogo from '../assets/scriptInkPrimary.png'
-function NavBar(){
+function NavBar({pathName}){
+    // console.log(pathName)
     return (
         <>
         <div className="navbar dm-sans pt-5">
@@ -46,7 +47,7 @@ function NavBar(){
                         </div>
                     </div>
                     <div className="relative md:block">
-                        <div className="px-3 py-2 ms-6 text-gray-500 hover:bg-[#FF4C60] hover:text-white rounded transition-all ease-in-out duration-200">
+                        <div className={`${pathName?.login==="login" ? 'bg-[#FF4C60] text-white px-3 py-2 ms-6 text-gray-500 rounded transition-all ease-in-out duration-200' : 'px-3 py-2 ms-6 text-gray-500 hover:bg-[#FF4C60] hover:text-white rounded transition-all ease-in-out duration-200'}`}>
                             <a className="" href="/login">
                                     <div className="text-lg">Login</div>
                             </a>
