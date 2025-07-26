@@ -3,6 +3,8 @@ import NavBar from "../Components/NavBar";
 import { useParams } from 'react-router-dom';
 import { LockIcon, Mail, Eye, EyeOff} from "lucide-react";
 import { PuffLoader,RingLoader, CircleLoader , MoonLoader, ClipLoader} from 'react-spinners';
+import bg from '../assets/scriptInkPrimary-modified.png';
+//import lavadeykabal from '../assets/bg.jpeg';
 function Login() {
     const pathName = useParams();
     const [icon, setIcon] = useState(EyeOff);
@@ -92,9 +94,9 @@ function Login() {
                                     <button className="font-semibold text-blue-500">Don't have an account?</button>
                             </div>
                        </div>
-                       <div className="">
-                            zcaf
-                       </div>
+                       <div className="flex justify-center items-center">
+                                            <div className="flex justify-center items-center py-20 rounded-3xl"><img src={bg} className="w-[50%]"/></div>  
+                        </div>
                 </div>
             </div>
         </>
