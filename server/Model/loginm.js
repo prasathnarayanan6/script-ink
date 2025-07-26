@@ -17,9 +17,9 @@ const loginModel = (user_email, user_password) => {
                     return resolve({status: "Invalid_Password", code: 401});
                 }
                 let role = user.user_role;
-                let token_data = role + '' + user_mail;
-                const accessToken = jwt.sign({user_mail,role}, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '15m'})
-                resolve({ accessToken: accessToken, id: user_mail, role: role, status: 'Login Authenticated', code: 200});
+                let token_data = role + '' + user_email;
+                const accessToken = jwt.sign({user_email,role}, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '15m'})
+                resolve({ accessToken: accessToken, id: user_email, role: role, status: 'Login Authenticated', code: 200});
             })
     })
 }
