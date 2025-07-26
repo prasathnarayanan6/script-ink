@@ -1,4 +1,6 @@
 const client = require('../utils/conn');
+const jwt = require('jsonwebtoken');
+const {comparePasswords} = require('../utils/hash')
 const loginModel = (user_email, user_password) => {
      return new Promise((resolve, reject) => {
             client.query('SELECT * FROM public.user_data WHERE user_email=$1 and status=$2', [user_email, 'active'], async(err, result) => {
