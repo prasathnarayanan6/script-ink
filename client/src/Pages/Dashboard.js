@@ -60,7 +60,7 @@ function Dashboard() {
         className= "absolute top-0 left-0 w-full h-full object-cover opacity-20 z-0"
       />
 
-      <div className= "relative bg-black py-32">        
+      <div className= "relative py-32">        
         <form onSubmit={handleSubmit} className="p-8 rounded-lg max-w-md mx-auto">
           <h2 className="text-white text-xl mb-6 text-center">Create your script now and say NO to writer's block</h2>
 
