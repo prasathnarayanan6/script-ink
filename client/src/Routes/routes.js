@@ -10,7 +10,7 @@ function RoutesPath() {
             <Routes>
                     <Route path="/" element={<Home />}/>
                     <Route path="/:login" element={<Login />} />
-                    <Route path="/si" elememt={<Dashboard />} />
+                    <Route path="/si" element={<Dashboard />} />
                     <Route element={<PrivateRoute />}>
                     </Route>
             </Routes>

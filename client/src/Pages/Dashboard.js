@@ -1,13 +1,15 @@
 import React from 'react'
-import SideBar from '../Components/sideBar'
+import SideBar from '../Components/sideBar.js'
 
 function Dashboard() {
   return (
-    <div>
+    <div className="">
             <SideBar />
-adad
+            <div className="">
+
+            </div>
     </div>
   )
 }
 
-export default Dashboard
+export default Dashboard;
