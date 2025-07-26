@@ -1,8 +1,8 @@
 const Login = async (req, res) => {
-    const {} = req.body
+    const {} = req.params
     try
     {
-        res.status(200).send("Checking");
+        res.status(200).send("Check");
     }   
     catch(err)
     {
