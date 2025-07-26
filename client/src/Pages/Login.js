@@ -1,15 +1,19 @@
 import React, {useState} from "react";
 import NavBar from "../Components/NavBar";
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { LockIcon, Mail, Eye, EyeOff} from "lucide-react";
 import { PuffLoader,RingLoader, CircleLoader , MoonLoader, ClipLoader} from 'react-spinners';
 import bg from '../assets/scriptInkPrimary-modified.png';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 //import lavadeykabal from '../assets/bg.jpeg';
+import LoginAPI from "../API/loginAPI";
 function Login() {
     const pathName = useParams();
     const [icon, setIcon] = useState(EyeOff);
     const [type, setType] = useState('password');
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
     const [loginData, setLoginData] = useState({
         user_email: '',
         user_password: ''
@@ -33,16 +37,38 @@ function Login() {
             setType('password');
         }
     }
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
+        if(!loginData.user_email || !loginData.user_password)
+        {
+            toast.error("please fill all the fields" , {
+                autoClose: 3000,
+                toastId: 'input-missing',
+                icon: false
+            });
+            return;
+        }
+        setLoading(true);
         try
         {
-                    const result = "check";
-                    console.log(result)
+                    const response = await LoginAPI(loginData);
+                    if (response.data.code === 200) {
+                            const token = response.data.accessToken;
+                            localStorage.setItem('user_token', token);
+                            navigate('/si');
+                    }
         }
         catch(err)
         {
-            console.log(err)
+            if (err?.response?.data?.code === 401 || err?.response?.data?.code === 404) {
+              toast.error("invalid credentials", {
+                toastId: 'invalid-credentials',
+                autoClose: 3000,
+                icon: false
+              });
+            }
+        } finally {
+            setLoading(false); 
         }
     }
     console.log(loginData);
@@ -91,7 +117,9 @@ function Login() {
                                             "Login"
                                         )}
                                     </button><br></br><br></br>
-                                    <button className="font-semibold text-blue-500">Don't have an account?</button>
+                                    <button className="font-semibold text-blue-500">Don't have an account?
+                                        <span className="text-black ms-1">Sign up</span>
+                                    </button>
                             </div>
                        </div>
                        <div className="flex justify-center items-center">

@@ -1,9 +1,11 @@
 const client = require('../utils/conn');
 const jwt = require('jsonwebtoken');
-const {comparePasswords} = require('../utils/hash')
+const {comparePasswords} = require('../utils/hash');
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 const loginModel = (user_email, user_password) => {
      return new Promise((resolve, reject) => {
-            client.query('SELECT * FROM public.user_data WHERE user_email=$1 and status=$2', [user_email, 'active'], async(err, result) => {
+            client.query('SELECT * FROM user_data WHERE email_address=$1 and status=$2', [user_email, 'active'], async(err, result) => {
                 if(err)
                 {
                     return reject(err)
@@ -19,7 +21,6 @@ const loginModel = (user_email, user_password) => {
                     return resolve({status: "Invalid_Password", code: 401});
                 }
                 let role = user.user_role;
-                let token_data = role + '' + user_email;
                 const accessToken = jwt.sign({user_email,role}, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '15m'})
                 resolve({ accessToken: accessToken, id: user_email, role: role, status: 'Login Authenticated', code: 200});
             })

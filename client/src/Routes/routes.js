@@ -10,8 +10,8 @@ function RoutesPath() {
             <Routes>
                     <Route path="/" element={<Home />}/>
                     <Route path="/:login" element={<Login />} />
-                    <Route path="/si" element={<Dashboard />} />
                     <Route element={<PrivateRoute />}>
+                          <Route path="/si" element={<Dashboard />} />
                     </Route>
             </Routes>
     </BrowserRouter>
