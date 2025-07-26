@@ -40,21 +40,21 @@ function NavBar({pathName}){
                     <span className="sr-only">Searchh</span>
                     </button>
                     <div className="relative md:block">
-                        <div className="px-2 py-2 ms-6 text-gray-500 hover:bg-[#3F51B5] hover:text-white rounded transition-all ease-in-out duration-200">
+                        <div className="px-2 py-2 ms-6 text-gray-800 hover:bg-[#3F51B5] hover:text-white rounded transition-all ease-in-out duration-200">
                             <button>
                                     <div className="text-lg ">About us</div>
                             </button>
                         </div>
                     </div>
                     <div className="relative md:block">
-                        <div className={`${pathName?.login==="login" ? 'bg-[#FF4C60] text-white px-3 py-2 ms-6 text-gray-500 rounded transition-all ease-in-out duration-200' : 'px-3 py-2 ms-6 text-gray-500 hover:bg-[#FF4C60] hover:text-white rounded transition-all ease-in-out duration-200'}`}>
+                        <div className={`${pathName?.login==="login" ? 'bg-[#FF4C60] text-white px-3 py-2 ms-6 text-gray-500 rounded transition-all ease-in-out duration-200' : 'px-3 py-2 ms-6 text-gray-800 hover:bg-[#FF4C60] hover:text-white rounded transition-all ease-in-out duration-200'}`}>
                             <a className="" href="/login">
                                     <div className="text-lg">Login</div>
                             </a>
                         </div>
                     </div>
                     <div className="relative md:block">
-                        <div className="px-3 py-2 ms-6 text-gray-500 bg-gray-200 rounded hover:scale-95 transition-all ease-in-out duration-300">
+                        <div className="px-3 py-2 ms-6 text-gray-800 bg-gray-200 rounded hover:scale-95 transition-all ease-in-out duration-300">
                             <button className="">
                                     <div className="text-lg">Sign up</div>
                             </button>
