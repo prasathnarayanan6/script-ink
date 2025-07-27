@@ -26,4 +26,17 @@ const loginModel = (user_email, user_password) => {
             })
     })
 }
-module.exports = {loginModel}
+const registerModel = (first_name, last_name, phone_number, email_address, user_password) => {
+    return new Promise((resolve, reject) => {
+           client.query('INSERT INTO user_data(first_name, last_name, phone_number, email_address, user_password) VALUES($1, $2, $3, $4, $5)', [first_name, last_name, phone_number, email_address, user_password], (err, result) => {
+                if(err)
+                {
+                    return reject(err);
+                }
+                else {
+                    return resolve(result);
+                }
+           })
+    })
+}
+module.exports = {loginModel, registerModel}
