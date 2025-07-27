@@ -1,4 +1,4 @@
-const {loginModel} = require('../Model/loginm');
+const {loginModel, registerModel} = require('../Model/loginm');
 const Login = async (req, res) => {
     const {user_email, user_password} = req.body
     try
@@ -33,4 +33,16 @@ const Login = async (req, res) => {
         res.status(200).json(err)
     }
 }
-module.exports = {Login}
+const RegisterController = async(req, res) => {
+    const {first_name, last_name, phone_number, email_address, user_password} = req.body;
+    try
+    {
+        const result = await registerModel(first_name, last_name, phone_number, email_address, user_password);
+        res.status(200).send(result);
+    }
+    catch(err)
+    {
+        res.status(500).json(err)
+    }
+}
+module.exports = {Login, RegisterController}
