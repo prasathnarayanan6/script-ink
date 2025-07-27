@@ -1,11 +1,11 @@
 const express = require('express');
 const app = express();
-const loginRouter = require('./Routes/route')
-const client = require('./utils/conn.js')
+const loginRouter = require('./Routes/LoginRouter.js')
+const registerRouter = require('./Routes/RegisterRouter.js');
 const cors = require('cors');
 app.use(express.json());
 app.use(cors());
-app.listen('3003', (err) => {
+app.listen('3003', (err) => {  
     if(err){ 
         console.log(err)
     }
@@ -13,5 +13,5 @@ app.listen('3003', (err) => {
         console.log(`working`)
     }
 })
-
-app.use('/api/v1', loginRouter)
+app.use('/api/v1', loginRouter);
+app.use('/api/v1', registerRouter);
