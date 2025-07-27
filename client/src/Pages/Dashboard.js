@@ -15,7 +15,6 @@ const formStyle = {
 
 function Dashboard() {
   const pathName = useParams();
-
   const [formData, setFormData] = useState({
           genre: '',
           script_language: [],
@@ -51,7 +50,7 @@ function Dashboard() {
   return (
     <div className="bg-black min-h-screen">
       <div className="fixed top-0 left-0 w-full z-50 bg-transparent">
-        <NavBar />
+        <NavBar pathName={pathName}/>
       </div>
 
       <img 

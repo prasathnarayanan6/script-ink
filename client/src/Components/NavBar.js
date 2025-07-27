@@ -2,7 +2,7 @@ import { Bell, MessageCircleMore, Search } from "lucide-react";
 import React from "react";
 import scriptinklogo from '../assets/scriptInkPrimary.png'
 function NavBar({pathName}){
-    // console.log(pathName)
+    console.log(pathName)
     return (
         <>
         <div className="navbar dm-sans pt-5">
