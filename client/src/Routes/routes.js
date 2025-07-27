@@ -4,12 +4,14 @@ import Home from '../Pages/Home';
 import Login from '../Pages/Login';
 import PrivateRoute from './ProtectedRoutes';
 import Dashboard from '../Pages/Dashboard';
+import SignUp from '../Pages/SignUp';
 function RoutesPath() {
   return (
     <BrowserRouter>
             <Routes>
                     <Route path="/" element={<Home />}/>
                     <Route path="/:login" element={<Login />} />
+                    <Route path="/signup" element={<SignUp />} />
                     <Route element={<PrivateRoute />}>
                           <Route path="/si" element={<Dashboard />} />
                     </Route>
