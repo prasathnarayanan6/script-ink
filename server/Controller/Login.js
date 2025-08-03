@@ -35,7 +35,7 @@ const Login = async (req, res) => {
     }
 }
 const RegisterController = async(req, res) => {
-    const {first_name, last_name, phone_number, email_address, user_password} = req.body;
+    const {email_address, user_password} = req.body;
     try
     {
         const result = await registerModel(first_name, last_name, phone_number, email_address, HashPassword(user_password));

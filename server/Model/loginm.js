@@ -26,9 +26,9 @@ const loginModel = (user_email, user_password) => {
             })
     })
 }
-const registerModel = (first_name, last_name, phone_number, email_address, user_password) => {
+const registerModel = (email_address, user_password) => {
     return new Promise((resolve, reject) => {
-           client.query('INSERT INTO user_data(first_name, last_name, phone_number, email_address, user_password) VALUES($1, $2, $3, $4, $5)', [first_name, last_name, phone_number, email_address, user_password], (err, result) => {
+           client.query('INSERT INTO public.user_data(email_address, user_password) VALUES($1, $2)', [email_address, user_password], (err, result) => {
                 if(err)
                 {
                     return reject(err);

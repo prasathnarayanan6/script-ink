@@ -1,5 +1,5 @@
 const { v4: uuidv4 } = require('uuid');
-const {formm} = require('../Model/formm');
+const {formm, getFormData} = require('../Model/formm');
 const formc = async(req, res) => {
     const requester = req.user;
     const {title, premise, genre, output_type, language} = req.body;
@@ -18,4 +18,16 @@ const formc = async(req, res) => {
         })
     }
 }
-module.exports = {formc}
+const getFormDatac = async(req, res) => {
+    // const requester = req.user;
+    try
+    {
+        const response = await getFormData();
+        res.status(200).send(response.rows);
+    }
+    catch(err)
+    {
+        res.status(500).send(err);
+    }
+}
+module.exports = {formc, getFormDatac}
