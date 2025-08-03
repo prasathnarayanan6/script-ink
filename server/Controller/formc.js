@@ -1,0 +1,21 @@
+const { v4: uuidv4 } = require('uuid');
+const {formm} = require('../Model/formm');
+const formc = async(req, res) => {
+    const requester = req.user;
+    const {title, premise, genre, output_type, language} = req.body;
+    try
+    {
+        const id = uuidv4();
+        const response = await formm(id, title, premise, genre, output_type, language, requester);
+        res.status(200).json({
+            result: response
+        })
+    }
+    catch(err)
+    {
+        res.status(500).json({
+            err: err.message
+        })
+    }
+}
+module.exports = {formc}

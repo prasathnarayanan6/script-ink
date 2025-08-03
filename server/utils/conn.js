@@ -15,7 +15,6 @@
 // module.exports = client;
 
 const {Client} = require('pg');
-// const dotenv = require('dotenv');
 const client = new Client({
   host: "localhost",
   user: "postgres",
