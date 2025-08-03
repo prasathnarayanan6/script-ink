@@ -5,6 +5,7 @@ import { PuffLoader,RingLoader, CircleLoader , MoonLoader, ClipLoader} from 'rea
 import hero from '../assets/ai_human_intrac.webp';
 import { jwtDecode } from "jwt-decode";
 import axios from 'axios';
+import ScriptInkAPI from '../API/ScriptInkAPI';
 // Optional inline styling
 const formStyle = {
   maxWidth: '500px',
@@ -13,7 +14,6 @@ const formStyle = {
   flexDirection: 'column',
   gap: '1rem',
 };
-
 function Dashboard() {
   const pathName = useParams();
   const [formData, setFormData] = useState({
