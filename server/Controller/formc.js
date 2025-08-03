@@ -5,8 +5,8 @@ const formc = async(req, res) => {
     const {title, premise, genre, output_type, language} = req.body;
     try
     {
-        const id = uuidv4();
-        const response = await formm(id, title, premise, genre, output_type, language, requester);
+        //const id = uuidv4();
+        const response = await formm(title, premise, genre, output_type, language, requester);
         res.status(200).json({
             result: response
         })

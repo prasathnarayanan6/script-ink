@@ -1,10 +1,17 @@
-import React from 'react';
 import axios from 'axios';
 import APP_URL from './config';
-function FormHandleAPI(token, formData){
-    const result = axios.post(APP_URL+'/api/v1/form-check', {
-        'Authorization': `Bearer ${token}`
-    }, formData)
-    return result;
+
+function FormHandleAPI(token, formData) {
+  return axios.post(
+    `${APP_URL}/api/v1/form-check`,
+    formData,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    }
+  );
 }
+
 export default FormHandleAPI;

@@ -6,6 +6,7 @@ import hero from '../assets/ai_human_intrac.webp';
 import { jwtDecode } from "jwt-decode";
 import axios from 'axios';
 import ScriptInkAPI from '../API/ScriptInkAPI';
+import FormHandleAPI from '../API/FormHandleAPI.js';
 // Optional inline styling
 const formStyle = {
   maxWidth: '500px',
@@ -32,21 +33,22 @@ function Dashboard() {
       [name]: value,
     }));
   };
-  const token = localStorage.getItem('user_token');
-  // console.log(jwtDecode(token));
+  //const token = localStorage.getItem('user_token');
   // Handle form submission
   const handleSubmit = async(e) => {
     e.preventDefault();
+    if (!formData.title || !formData.premise || !formData.genre || !formData.output_type || !formData.language) {
+        console.warn("All fields are required");
+        return;
+    }
     try {
-        const response = await axios.post('http://localhost:3003/api/v1/form-check', formData, {
-          headers: {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json'
-          },
-        });
-        console.log(response);
-    } catch (err) {
-      console.error('Form submission error:', err);
+      const token = localStorage.getItem('user_token');
+      const response = FormHandleAPI(token, formData)
+      console.log(response);
+    }
+    catch(err)
+    {
+      console.log(err)
     }
   };
   console.log(formData);
