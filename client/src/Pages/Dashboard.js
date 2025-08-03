@@ -5,7 +5,10 @@ import { PuffLoader,RingLoader, CircleLoader , MoonLoader, ClipLoader} from 'rea
 import hero from '../assets/ai_human_intrac.webp';
 import { jwtDecode } from "jwt-decode";
 import axios from 'axios';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import ScriptInkAPI from '../API/ScriptInkAPI';
+import { Navigate } from "react-router-dom";
 import FormHandleAPI from '../API/FormHandleAPI.js';
 // Optional inline styling
 const formStyle = {
@@ -43,8 +46,13 @@ function Dashboard() {
     }
     try {
       const token = localStorage.getItem('user_token');
-      const response = FormHandleAPI(token, formData)
+      const response = await FormHandleAPI(token, formData)
       console.log(response);
+      if(response?.data?.result?.code === 200)
+      {
+        toast.success('Your request is successful.')
+        console.log(response);
+      }
     }
     catch(err)
     {
@@ -52,6 +60,11 @@ function Dashboard() {
     }
   };
   console.log(formData);
+  const token = jwtDecode(localStorage.getItem('user_token'));
+  if(!token.role == 103)
+  {
+    return <Navigate to="/" replace />
+  }
   return (
     <div className="bg-black min-h-screen">
       <div className="fixed top-0 left-0 w-full z-50 bg-transparent">
